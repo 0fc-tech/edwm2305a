@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "TP"
 include(":app")
 include(":cadox")
+include(":mod4demo")
