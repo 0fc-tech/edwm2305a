@@ -17,3 +17,4 @@ rootProject.name = "TP"
 include(":app")
 include(":cadox")
 include(":mod4demo")
+include(":mod4demobinding")

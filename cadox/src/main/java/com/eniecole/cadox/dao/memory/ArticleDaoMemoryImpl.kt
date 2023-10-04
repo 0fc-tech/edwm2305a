@@ -10,6 +10,7 @@ class ArticleDaoMemoryImpl : ArticleDao {
         Article(3,"Ecran 24 pouces","Ecran informatique pour afficher des choses",200.0,4,""),
         Article(4,"Ecran 22 pouces","Ecran informatique pour afficher des choses",130.0,4,""),
         Article(5,"Ecran 34 pouces","Ecran informatique pour afficher des choses",600.0,4,""),
+        Article(6,"Ordinateur MBP 13","Ordinateur qui coûte 4 SMIC",4000.0,3,""),
     )
 
     override fun selectById(id: Long): Article? = articlesInMemory.find { it.id == id }
