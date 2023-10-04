@@ -14,5 +14,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         binding.textViewHelloWorld.text = "Hello World"
         binding.mobilier = mobiliers[3]
+        getString(R.string.app_name)
     }
 }
