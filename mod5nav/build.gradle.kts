@@ -4,20 +4,17 @@ plugins {
 }
 
 android {
-    namespace = "com.eniecole.cadox"
+    namespace = "com.eniecole.mod5nav"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.eniecole.cadox"
+        applicationId = "com.eniecole.mod5nav"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildFeatures{
-        dataBinding = true
     }
 
     buildTypes {
