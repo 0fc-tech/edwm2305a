@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.eniecole.cadox.databinding.FragmentArticleViewBinding
 import com.eniecole.cadox.repository.ArticleRepository
 
@@ -28,5 +29,19 @@ class ArticleViewFragment : Fragment() {
         val articleMBP = ArticleRepository.getArticle(6)
         binding.article = articleMBP
         binding.textViewPrix.textSize = 40.0f
+        //Détecter le clic sur le bouton "edit" et passer à la page suivante
+        binding.imageButtonEdit.setOnClickListener {
+            findNavController().navigate(R.id.action_articleViewFragment_to_articleEditFragment)
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
