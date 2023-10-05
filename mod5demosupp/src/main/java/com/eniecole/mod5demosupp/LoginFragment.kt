@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 
 
@@ -22,7 +23,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val buttonConnexion = view.findViewById<Button>(R.id.buttoConnexion)
         buttonConnexion.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            val direction = LoginFragmentDirections.actionLoginFragmentToHomeFragment(
+                view.findViewById<EditText>(R.id.editTextTextEmailAddress).text.toString()
+            )
+            findNavController().navigate(direction)
+
         }
     }
 
