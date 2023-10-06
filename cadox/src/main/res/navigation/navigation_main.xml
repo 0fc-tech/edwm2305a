@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/articleEditFragment"
         android:name="com.eniecole.cadox.ArticleEditFragment"
-        android:label="ArticleEditFragment" />
+        android:label="ArticleEditFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.eniecole.cadox.bo.Article" />
+    </fragment>
 </navigation>

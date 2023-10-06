@@ -31,7 +31,11 @@ class ArticleViewFragment : Fragment() {
         binding.textViewPrix.textSize = 40.0f
         //Détecter le clic sur le bouton "edit" et passer à la page suivante
         binding.imageButtonEdit.setOnClickListener {
-            findNavController().navigate(R.id.action_articleViewFragment_to_articleEditFragment)
+            //Construire notre route vers editFragment et lui donner notre article
+            if(articleMBP != null){
+                val direction = ArticleViewFragmentDirections.actionArticleViewFragmentToArticleEditFragment(articleMBP)
+                findNavController().navigate(direction)
+            }
         }
     }
 }

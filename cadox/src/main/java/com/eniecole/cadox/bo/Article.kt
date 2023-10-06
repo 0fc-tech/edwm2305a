@@ -1,8 +1,10 @@
 package com.eniecole.cadox.bo
 
 import android.os.Build
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDate
-
+@Parcelize
 data class Article(
     val id: Long,
     var intitule: String,
@@ -12,4 +14,5 @@ data class Article(
     var url: String? = null,
     var achete: Boolean = false,
     var dateAchat: LocalDate? = null
-)
+) : Parcelable
+

@@ -3,6 +3,32 @@
     <style name="Base.Theme.TP" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/custom_md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/custom_md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/custom_md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/custom_md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/custom_md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/custom_md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/custom_md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/custom_md_theme_light_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/custom_md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/custom_md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/custom_md_theme_light_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/custom_md_theme_light_onTertiaryContainer</item>
+        <item name="colorError">@color/custom_md_theme_light_error</item>
+        <item name="colorErrorContainer">@color/custom_md_theme_light_errorContainer</item>
+        <item name="colorOnError">@color/custom_md_theme_light_onError</item>
+        <item name="colorOnErrorContainer">@color/custom_md_theme_light_onErrorContainer</item>
+        <item name="android:colorBackground">@color/custom_md_theme_light_background</item>
+        <item name="colorOnBackground">@color/custom_md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/custom_md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/custom_md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/custom_md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/custom_md_theme_light_onSurfaceVariant</item>
+        <item name="colorOutline">@color/custom_md_theme_light_outline</item>
+        <item name="colorOnSurfaceInverse">@color/custom_md_theme_light_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/custom_md_theme_light_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/custom_md_theme_light_inversePrimary</item>
     </style>
 
     <style name="Theme.TP" parent="Base.Theme.TP" />

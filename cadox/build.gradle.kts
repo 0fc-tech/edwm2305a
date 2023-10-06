@@ -1,6 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    //Permet de générer les classe Direction, Args
+    id("androidx.navigation.safeargs.kotlin")
+    //Permet d'implémenter Parcelable
+    id("kotlin-parcelize")
 }
 
 android {
@@ -39,7 +43,10 @@ android {
 }
 
 dependencies {
-
+    //Permet d'obtenir la propriété délégué "by navArgs" Activity
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    //Permet d'obtenir la propriété délégué "by navArgs" Fragment
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
