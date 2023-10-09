@@ -1,16 +1,29 @@
 package com.eniecole.cadox
 
+import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.eniecole.cadox.databinding.FragmentArticleViewBinding
 import com.eniecole.cadox.repository.ArticleRepository
 
 class ArticleViewFragment : Fragment() {
     private lateinit var binding : FragmentArticleViewBinding
+    private val requestPermissionSMS = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),){
+        isGranted->
+        val intentToSMS = Intent(Intent.ACTION_SENDTO, Uri.parse("sms:061234567"))
+        //L'app SMS vient lire l'INTENT qu'elle reçoit et utilise la valeur de l'extra "sms_body" pour le corps du SMS
+        intentToSMS.putExtra("sms_body","Pour mon anniversaire je voudrais un " +
+                "${ binding.article?.intitule} ça ne coûte que ${ binding.article?.prix}€")
+        startActivity(intentToSMS)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +49,13 @@ class ArticleViewFragment : Fragment() {
                 val direction = ArticleViewFragmentDirections.actionArticleViewFragmentToArticleEditFragment(articleMBP)
                 findNavController().navigate(direction)
             }
+        }
+        binding.imageButtonWeb.setOnClickListener {
+            val intentToWeb = Intent(Intent.ACTION_VIEW, Uri.parse(articleMBP?.url))
+            startActivity(intentToWeb)
+        }
+        binding.imageButtonSend.setOnClickListener {
+            requestPermissionSMS.launch(Manifest.permission.SEND_SMS)
         }
     }
 }
