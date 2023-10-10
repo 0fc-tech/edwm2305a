@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +14,18 @@ import androidx.navigation.fragment.findNavController
 import com.eniecole.cadox.databinding.FragmentArticleViewBinding
 import com.eniecole.cadox.repository.ArticleRepository
 
+private const val TAG = "ArticleViewFragment"
 class ArticleViewFragment : Fragment() {
     private lateinit var binding : FragmentArticleViewBinding
     private val requestPermissionSMS = registerForActivityResult(
-        ActivityResultContracts.RequestPermission(),){
+        ActivityResultContracts.RequestPermission()){
         isGranted->
-        val intentToSMS = Intent(Intent.ACTION_SENDTO, Uri.parse("sms:061234567"))
+        val intentToSMS =Intent(
+            if(isGranted)
+                Intent.ACTION_SENDTO
+            else Intent.ACTION_VIEW,
+            Uri.parse("sms:061234567")
+        )
         //L'app SMS vient lire l'INTENT qu'elle reçoit et utilise la valeur de l'extra "sms_body" pour le corps du SMS
         intentToSMS.putExtra("sms_body","Pour mon anniversaire je voudrais un " +
                 "${ binding.article?.intitule} ça ne coûte que ${ binding.article?.prix}€")
@@ -38,8 +45,12 @@ class ArticleViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val articleMBP = ArticleRepository.getArticle(6)
+        val articleMBP = ArticleRepository.getArticle(1)
+        Log.i(TAG, "onViewCreated:${articleMBP.toString()} ")
+        println("print"+articleMBP.toString())
+        if(articleMBP == null){
+            Log.e(TAG, "onViewCreated: erreur lors de la récupération de l'article \"null\"", )
+        }
         binding.article = articleMBP
         binding.textViewPrix.textSize = 40.0f
         //Détecter le clic sur le bouton "edit" et passer à la page suivante
