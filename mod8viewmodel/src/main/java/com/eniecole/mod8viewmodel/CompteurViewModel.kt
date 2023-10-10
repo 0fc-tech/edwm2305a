@@ -1,9 +1,12 @@
 package com.eniecole.mod8viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class CompteurViewModel : ViewModel() {
-    var compteur = 0
+    var compteur = MutableLiveData(0)
 
-    fun inc() = ++compteur
+    fun inc() {
+      compteur.value = compteur.value?.inc()
+    }
 }
