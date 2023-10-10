@@ -1,11 +1,11 @@
 package com.eniecole.mod8dicelauncher
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DiceViewModel : ViewModel() {
-    var valueDice : Int=0
-    fun launchDice(maxValue: Int): Int {
-        valueDice = (1..maxValue).random()
-        return valueDice
+    val valueDice = MutableLiveData(0)
+    fun launchDice(maxValue: Int){
+        valueDice.value = (1..maxValue).random()
     }
 }
