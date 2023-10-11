@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase
 abstract class CadeauDatabase : RoomDatabase() {
     abstract fun cadeauDao(): CadeauDao
 
+
     companion object{
         @Volatile
         private var INSTANCE : CadeauDatabase? = null

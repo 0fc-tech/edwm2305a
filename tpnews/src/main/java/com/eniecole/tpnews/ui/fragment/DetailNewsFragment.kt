@@ -9,20 +9,28 @@ import androidx.navigation.fragment.navArgs
 import com.eniecole.tpnews.R
 import com.eniecole.tpnews.databinding.FragmentDetailNewsBinding
 
-
 class DetailNewsFragment : Fragment() {
-    private lateinit var binding : FragmentDetailNewsBinding
-    private val args by navArgs<DetailNewsFragmentArgs>()
+
+    private var _binding: FragmentDetailNewsBinding? = null
+    private val binding get() = _binding!!
+    val args by navArgs<DetailNewsFragmentArgs>()
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentDetailNewsBinding.inflate( inflater, container, false)
+    ): View {
+        _binding = FragmentDetailNewsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.news = args.news
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
