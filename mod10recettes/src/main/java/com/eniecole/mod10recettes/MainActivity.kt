@@ -2,6 +2,7 @@ package com.eniecole.mod10recettes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -51,10 +52,10 @@ class MainActivity : AppCompatActivity() {
                 image = "lien_vers_image_soupe_potiron"
             )
         )
-        findViewById<RecyclerView>(R.id.recyclerViewRecettes).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = RecetteAdapter(recettes)
-        }
+        val rv =findViewById<RecyclerView>(R.id.recyclerViewRecettes)
+        rv.layoutManager = LinearLayoutManager(this@MainActivity)
+        rv.adapter = RecetteAdapter(recettes)
+
 
     }
 }

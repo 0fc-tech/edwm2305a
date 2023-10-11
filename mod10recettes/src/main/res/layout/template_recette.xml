@@ -26,23 +26,27 @@
 
         <TextView
             android:id="@+id/textViewTitre"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@{recette.nom}"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTpsPreparation"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TITRE" />
 
         <TextView
             android:id="@+id/textViewListIngredients"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@{recette.listIngredients.toString()}"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTpsCuisson"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitre"
+            tools:text="POMME DE TERRE CHCOOLAT POULET" />
 
         <TextView
             android:id="@+id/textViewTpsPreparation"
@@ -50,18 +54,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@{recette.tpsPreparationH + `h`}"
+            android:text="@{recette.tpsPreparationH + `h🔪`}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1.5h" />
 
         <TextView
             android:id="@+id/textViewTpsCuisson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="@{recette.tpsCuissonH + `h`}"
+            android:text="@{recette.tpsCuissonH + `h🍳`}"
             app:layout_constraintBottom_toBottomOf="@+id/textViewListIngredients"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewListIngredients" />
+            app:layout_constraintTop_toTopOf="@+id/textViewListIngredients"
+            tools:text="2h" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
