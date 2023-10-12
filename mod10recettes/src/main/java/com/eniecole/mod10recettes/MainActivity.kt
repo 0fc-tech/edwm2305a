@@ -54,7 +54,9 @@ class MainActivity : AppCompatActivity() {
         )
         val rv =findViewById<RecyclerView>(R.id.recyclerViewRecettes)
         rv.layoutManager = LinearLayoutManager(this@MainActivity)
-        rv.adapter = RecetteAdapter(recettes)
+        rv.adapter = RecetteAdapter(recettes){recetteClicked->
+            print(recetteClicked)
+        }
 
 
     }

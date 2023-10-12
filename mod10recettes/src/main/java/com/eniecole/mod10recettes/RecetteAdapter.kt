@@ -3,12 +3,16 @@ package com.eniecole.mod10recettes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.eniecole.mod10recettes.databinding.TemplateRecetteBinding
 
 
-class RecetteAdapter(val alRecette: ArrayList<Recette>) : Adapter<RecetteAdapter.RecetteVH>(){
+class RecetteAdapter(val alRecette: ArrayList<Recette>,
+                     val onClickRecette :  (recette: Recette) -> Unit)
+    : Adapter<RecetteAdapter.RecetteVH>(){
     class RecetteVH(val binding: TemplateRecetteBinding) : ViewHolder(binding.root)
     //Est déclenché une seule fois pour créer notre template (réutilisé à chaque recette)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecetteVH {
@@ -25,5 +29,6 @@ class RecetteAdapter(val alRecette: ArrayList<Recette>) : Adapter<RecetteAdapter
     override fun onBindViewHolder(holder: RecetteVH, position: Int) {
         val recetteAAfficher = alRecette[position]
         holder.binding.recette = recetteAAfficher
+        holder.itemView.setOnClickListener { onClickRecette(recetteAAfficher) }
     }
 }
